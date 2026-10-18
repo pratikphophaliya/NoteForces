@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>NoteForces</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>NoteForces</h1>
+        <p class="sub" id="count">Loading…</p>
+      </div>
+      <button id="options" title="Backup &amp; notes folder">Backup</button>
+    </header>
+    <input id="search" type="search" placeholder="Search problems and notes…" aria-label="Search notes" />
+    <ul id="list"></ul>
+    <p id="empty" hidden>
+      No notes yet. Open any Codeforces problem — the NoteForces toolbar appears on the left of the page.
+    </p>
+    <footer id="foot">Stored offline on this computer</footer>
+    <script src="../shared/storage.js"></script>
+    <script src="../shared/folder.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

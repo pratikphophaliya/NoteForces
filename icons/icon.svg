@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- notebook -->
+  <rect x="20" y="6" width="102" height="116" rx="18" fill="#3F51B5"/>
+  <!-- spiral rings -->
+  <g>
+    <rect x="3" y="27" width="28" height="11" rx="5.5" fill="#E53935"/>
+    <circle cx="30" cy="32.5" r="7" fill="#fff"/><circle cx="30" cy="32.5" r="3.2" fill="#3F51B5"/>
+    <rect x="3" y="58.5" width="28" height="11" rx="5.5" fill="#E53935"/>
+    <circle cx="30" cy="64" r="7" fill="#fff"/><circle cx="30" cy="64" r="3.2" fill="#3F51B5"/>
+    <rect x="3" y="90" width="28" height="11" rx="5.5" fill="#E53935"/>
+    <circle cx="30" cy="95.5" r="7" fill="#fff"/><circle cx="30" cy="95.5" r="3.2" fill="#3F51B5"/>
+  </g>
+  <!-- writing -->
+  <g stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M48 25H104"/>
+    <path d="M48 41H88"/>
+    <path d="M48 57H74"/>
+    <path d="M48 76c3.5-6 7-6 10 0s6.5 6 10 0 7-6 10 0"/>
+    <path d="M48 93H106"/>
+    <path d="M48 109H86"/>
+  </g>
+  <!-- pencil -->
+  <g transform="translate(82 77) rotate(-45)">
+    <path d="M0 0L11 -6V6Z" fill="#F6C98B"/>
+    <path d="M0 0L4.4 -2.4V2.4Z" fill="#37474F"/>
+    <rect x="11" y="-6" width="28" height="12" fill="#FBC02D"/>
+    <rect x="11" y="-6" width="28" height="4.5" fill="#FFEB3B"/>
+    <rect x="39" y="-6" width="5" height="12" fill="#90A4AE"/>
+    <path d="M44 -6H48a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H44Z" fill="#EC407A"/>
+  </g>
+  <!-- CF mark -->
+  <text x="112" y="116" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-weight="800" font-size="19" fill="#fff" letter-spacing="-1">CF</text>
+</svg>

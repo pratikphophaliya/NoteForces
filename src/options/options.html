@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NoteForces Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>NoteForces</h1>
+      <p class="lead">Your notes never leave this computer. There's no account and nothing is uploaded.</p>
+
+      <section>
+        <h2>Storage</h2>
+        <p id="stats">Loading…</p>
+      </section>
+
+      <section id="folder-section">
+        <h2>Notes folder</h2>
+        <p>
+          Keep a copy of every note in a folder you choose — one <code>.json</code> file per problem (restorable) and a
+          readable <code>.md</code> file you can open without the extension. Backups also run each time you open the
+          NoteForces popup.
+        </p>
+        <p id="folder-status" class="status"></p>
+        <div class="row">
+          <button id="folder-choose" class="primary">Choose folder</button>
+          <button id="folder-backup">Back up now</button>
+          <button id="folder-restore">Restore from folder</button>
+          <button id="folder-forget" class="ghost">Forget folder</button>
+        </div>
+        <p id="folder-unsupported" class="status" hidden>
+          This browser can't write to folders directly. Use Export below to save a backup file instead.
+        </p>
+      </section>
+
+      <section>
+        <h2>Export / import</h2>
+        <p>Save everything to a single backup file, or load one (newer edits win when merging).</p>
+        <div class="row">
+          <button id="export" class="primary">Export all notes</button>
+          <label class="button" for="import">Import backup…</label>
+          <input id="import" type="file" accept="application/json,.json" hidden />
+        </div>
+        <p id="io-status" class="status"></p>
+      </section>
+
+      <section class="danger">
+        <h2>Delete</h2>
+        <p>Remove every note, highlight and drawing stored by NoteForces in this browser.</p>
+        <button id="wipe" class="danger-btn">Delete all notes</button>
+      </section>
+    </main>
+    <script src="../shared/storage.js"></script>
+    <script src="../shared/folder.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

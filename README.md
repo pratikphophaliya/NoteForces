@@ -2,14 +2,38 @@
 
 A browser extension for annotating Codeforces problems while you solve them. You can highlight the statement, write with a pen, draw shapes, add text boxes and keep written notes. Everything is saved offline on your computer and comes back when you reopen the problem. There's no account and no server.
 
-## Install (Chrome / Edge / Brave)
+## Install
 
-1. Open `chrome://extensions` (or `edge://extensions`).
-2. Turn on **Developer mode**.
-3. Click **Load unpacked** and choose this folder.
-4. Open any problem, e.g. <https://codeforces.com/problemset/problem/4/A>. The toolbar appears on the left.
+### Chrome, Edge, Brave, Opera (any Chromium browser)
 
-Firefox (140+): open `about:debugging` → *This Firefox* → *Load Temporary Add-on* → pick `manifest.json`.
+1. Go to the [latest release](https://github.com/pratikphophaliya/NoteForces/releases/latest) and download `noteforces-<version>.zip` (under **Assets**).
+2. Unzip it into a folder you'll keep. Right-click the zip → **Extract All…**, and pick a place like `Documents/NoteForces`. Don't delete this folder later, because the browser loads the extension from it.
+3. Open your browser's extensions page:
+   - Chrome: `chrome://extensions`
+   - Edge: `edge://extensions`
+   - Brave: `brave://extensions`
+   - Opera: `opera://extensions`
+4. Turn on **Developer mode** (a toggle in the top-right corner, or on the left side in Edge).
+5. Click **Load unpacked** and select the unzipped folder: the one that has `manifest.json` directly inside it.
+6. Open any Codeforces problem, e.g. <https://codeforces.com/problemset/problem/4/A>. The NoteForces toolbar appears on the left. Pin the extension icon if you want quick access to your notes list.
+
+**Updating to a new version:** download the new zip and unzip it **into the same folder**, replacing the old files. Then click the ⟳ reload button on NoteForces in the extensions page. Your notes are kept.
+
+> Don't click **Remove** on the extension when updating. Removing it deletes the notes saved in that browser. Use **Settings → Export all notes** first if you ever need to reinstall.
+
+### Firefox (140+)
+
+Firefox only keeps add-ons installed permanently when they come from Firefox Add-ons (AMO). To try a release zip in the meantime:
+
+1. Download and unzip the release as above.
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Click **Load Temporary Add-on…** and pick the `manifest.json` file inside the unzipped folder.
+
+A temporary add-on is removed when Firefox closes, along with its notes, so export your notes before closing.
+
+### From source (for development)
+
+Clone this repo and use **Load unpacked** on the repo folder (Chromium), or **Load Temporary Add-on** with its `manifest.json` (Firefox).
 
 ## How to use
 
@@ -51,20 +75,7 @@ src/options/             notes folder, export/import, delete
 ```
 
 Design choices:
-- **Drawings are SVG vectors**, anchored to the top-left of the problem statement. They stay sharp at any zoom, take little storage, and stay aligned when the header or ads change size.
+- **Drawings are SVG vectors**, each pinned to the nearest character of the statement. They stay sharp at any zoom, take little storage, and move with the text when it rewraps.
 - **Highlights use the CSS Custom Highlight API.** The page's HTML is never modified, so MathJax and Codeforces scripts can't break, and nothing breaks them. Each highlight is stored as character offsets plus the quoted text and some surrounding context. If the statement shifts, the highlight finds its text again.
 - **Problem IDs are shared** between `/problemset/problem/4/A` and `/contest/4/problem/A`, so notes follow the problem. Gym and group problems get a `gym` prefix.
 - **Autosave** runs 0.4 s after each change and again when the tab closes. If the same problem is open in two tabs, they stay in sync.
-
-## Ideas for later
-
-1. **Ink to shape:** draw a rough box or circle, pause, and it snaps into a clean shape (like OneNote).
-2. **Lasso select:** move or recolour or delete groups of strokes, plus a "move" tool for shapes.
-3. **Tags and status** per problem (Solved / WA / Revisit, plus a topic like dp or graphs), shown in the popup with filters. The rating and tags could be pulled from the public Codeforces API.
-4. **Markdown + LaTeX preview** in the notes panel, and code-snippet blocks.
-5. **Notes on the submit/status pages:** link a submission ID to a note ("WA on test 5 because of overflow").
-6. **Revisit reminders:** spaced repetition for problems marked "Revisit".
-7. **Auto-backup on every save** through an offscreen document, so the folder is always current without opening the popup.
-8. **A single sidebar overview** of all your notes, plus a "random problem I struggled with" button.
-9. **Dark mode** that matches Codeforces dark themes and extensions.
-10. **Templates** for notes (Observations / Approach / Complexity / Edge cases).
